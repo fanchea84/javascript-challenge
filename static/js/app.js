@@ -27,27 +27,45 @@ tableData.forEach((item) => {  // Use forEach to append to table row-by-row from
 
 // -------------------- FIRST FILTER ATTEMPT -------------------- //
 // RESOURCE: MODULE 14 DAY 3 ACTIVITY 9 ==> https://oregon.bootcampcontent.com/Oregon_Coding_Bootcamp/uofo-por-data-pt-09-2020-u-c/-/blob/master/14-Intro-To-JavaScript/3/Activities/09-Par_Form_Filter/Solved/app.js
-var button = d3.select("#button");  // Select the button
-var form = d3.select("#form");  // Select the form
+
+// Assign the data from `data.js` to a descriptive variable
+var filteredSightings = data;
+
+// Select the button
+var button = d3.select("#button");
+
+// Select the form
+var form = d3.select("#form");
+
 // Create event handlers 
-button.on("click", filterbydate);
-form.on("submit", filterbydate);
-function filterbydate() {  // Complete the event handler function for the form
-  d3.event.preventDefault();  // Prevent the page from refreshing (browsers default to refreshing)
-  var inputElement = d3.select("#datetime-input");  // Select the input element and get the raw HTML node || DATETIME-INPUT is in the INDEX.HTML file
-  var inputValue = inputElement.property("value");  // Get the value property of the input element
-  console.log(inputValue);
-  console.log(tableData);
-  var filteredData = tableData.filter(person => person.bloodType === inputValue);
+button.on("click", runEnter);
+form.on("submit", runEnter);
+
+// Complete the event handler function for the form
+function runEnter() {
+
+  // Prevent the page from refreshing
+  d3.event.preventDefault();
+  
+  // Select the input element and get the raw HTML node
+  var dateInputElement = d3.select("#patient-form-input");
+
+  // Get the value property of the input element
+  var dateToFilter = dateInputElement.property("value");
+
+  console.log(dateToFilter);
+  console.log(filteredSightings);
+
+  var filteredData = filteredSightings.filter(ufo => ufo.datetime === dateToFilter);
+
   console.log(filteredData);
 };
 
-
 // -------------------- SECOND FILTER ATTEMPT -------------------- //
-function filterTable() {
-  console.log("filtered");
-  d3.event.preventDefault();
-  var dateInput = d3.select("#datetime-input").node().value;
-  var filtered = tableData.filter(d => d.datetime ===datetime-input);
-  buildpage(filtered);
-}
+// function filterTable() {
+//   console.log("filtered");
+//   d3.event.preventDefault();
+//   var dateInput = d3.select("#datetime-input").node().value;
+//   var filtered = tableData.filter(d => d.datetime ===datetime-input);
+//   buildpage(filtered);
+// }
