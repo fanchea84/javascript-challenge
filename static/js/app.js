@@ -2,10 +2,10 @@
 // BOOTCAMP STARTER FILE ==> https://oregon.bootcampcontent.com/Oregon_Coding_Bootcamp/uofo-por-data-pt-09-2020-u-c/-/blob/master/14-Intro-To-JavaScript/HW/Instructions/StarterCode/static/js/app.js
 
 var tableData = data; // this declares varable TABLEDATA and points it to the data contained in data.js
-console.log(tableData);
+// console.log(tableData);
 
 var tbody = d3.select("tbody"); // Use D3 to select the table body from INDEX.HTML
-console.log(tbody);
+// console.log(tbody);
 
 // ---------------------------------------------------------- //
 // --------------------- POPULATE TABLE --------------------- //
@@ -16,9 +16,9 @@ tableData.forEach((item) => {  // Use forEach to append to table row-by-row from
     var row = tbody.append("tr"); // Append one table row `tr` to the table body
     Object.values(item).forEach(value => {  //OJBECT.VALUE gets the value from ojbect, specifically from the value part of the key-value pair
         row.append("td").text(value);  // Append one cell for the student name
-        console.log(value)
+        // console.log(value)
     });
-    console.log(item);
+    // console.log(item);
   })
 
 // ------------------------------------------------------ //
@@ -48,7 +48,7 @@ function runEnter() {
   d3.event.preventDefault();
   
   // Select the input element and get the raw HTML node
-  var dateInputElement = d3.select("#patient-form-input");
+  var dateInputElement = d3.select("#datetime-input");
 
   // Get the value property of the input element
   var dateToFilter = dateInputElement.property("value");
